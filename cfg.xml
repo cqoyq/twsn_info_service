@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application>
+	<rabbitmq_receiver>
+				<type>1</type>
+				<ip>127.0.0.1</ip>						
+				<port>5672</port>							
+				<username>guest</username>		
+				<pwd>guest</pwd>						
+				<host>/</host>
+				<exchange></exchange>								
+				<routingkey>twsn_info_service</routingkey>		
+	</rabbitmq_receiver>
+	<rabbitmq_sendor>
+				<list>
+					<item key="logger" type="1" ip="127.0.0.1" port="5672" username="guest" pwd="guest" host="/" exchange="" routingkey="twsn_log_service"/>
+					<item key="tcp_acceptor" type="1" ip="127.0.0.1" port="5672" username="guest" pwd="guest" host="/" exchange="" routingkey="twsn_acceptor_service"/>
+				</list>
+	</rabbitmq_sendor>
+	<rbmq_log_visitor>
+					<rabbitmq_key>logger</rabbitmq_key>
+					<log_level>all</log_level>					
+	</rbmq_log_visitor>
+	<mysql_connector>
+		<connector key="mysql" ip="192.168.2.89" dbname="sart" user="myuser" pwd="myuser1234" port="3306" />
+	</mysql_connector>
+	<local_log_visitor>
+					<type>every_day</type>	
+					<filename>log</filename>		
+					<path>logs</path>					
+					<level>all</level>					
+	</local_log_visitor>
+</application>
