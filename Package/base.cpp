@@ -51,10 +51,10 @@ string Package::u56_to_string(char* u56_p){
 
 char* Package::base_stream_to_node(char* stream, node*& n){
 	node* header = new node("header", Package::u8_to_string(stream).c_str());
-	node* base_code = new node("base_code", Package::u32_to_string(stream + 2).c_str());
+	node* base_code = new node("source_host", Package::u32_to_string(stream + 2).c_str());
 	node* command = new node("command", Package::u8_to_string(stream + 2 + 4).c_str());
-	node* frame_code = new node("frame_code", Package::u8_to_string(stream + 2 + 4 + 1).c_str());
-	node* endpoint_code = new node("endpoint_code", Package::u32_to_string(stream + 2 + 4 + 1 + 1).c_str());
+	node* frame_code = new node("frame", Package::u8_to_string(stream + 2 + 4 + 1).c_str());
+	node* endpoint_code = new node("source_endpoint", Package::u32_to_string(stream + 2 + 4 + 1 + 1).c_str());
 
 	n->child.push_back(header);
 	n->child.push_back(base_code);

@@ -45,6 +45,13 @@ OBJS = main.o \
 			Package/base.o \
 			Package/package_factory.o \
 			Package/unpack/message_0x6a_0x01.o \
+			Package/unpack/message_0x6a_0x06.o \
+			Package/unpack/message_0x6a_0x1c.o \
+			Package/unpack/message_0x6a_0x1d.o \
+			Package/unpack/message_0x6c_0x01.o \
+			Package/unpack/message_0x6c_0x06.o \
+			Package/unpack/message_0x6c_0x1c.o \
+			Package/unpack/message_0x6c_0x0f.o \
 			Handlers/base.o \
 			Handlers/hdr_factory.o \
 			Store/store_factory.o
@@ -56,7 +63,7 @@ DEBUGS =
 endif
 
 ifeq ($(ConfigName),Debug)
-CXXFLAGS =	-O2 -g -Wall -fmessage-length=0 -std=c++11 $(DEBUGS)  $(INCLUDE)
+CXXFLAGS =	-O0 -g -Wall -fmessage-length=0 -std=c++11 $(DEBUGS)  $(INCLUDE)
 else
 CXXFLAGS =	-O2 -Wall -fmessage-length=0  -std=c++11 $(INCLUDE)
 endif
